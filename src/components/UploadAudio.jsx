@@ -8,34 +8,6 @@ const UploadAudio = () => {
     const [audioUrl, setAudioUrl] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    // const handleSubmit = async (event) => {
-    //     event.preventDefault(); // Prevent the default form submission behavior
-
-    //     const formData = new FormData(); // Create a FormData object
-
-    //     // Get the selected file from the file input
-    //     const file = event.target.audioFile.files[0];
-    //     formData.append('audio', file); // Append the file to FormData with key 'audio'
-
-    //     setLoading(true);
-    //     try {
-    //         const response = await fetch('http://127.0.0.1:5000/predict', {
-    //             method: 'POST',
-    //             body: formData
-    //         });
-    //         const responseData = await response.json();
-    //         // console.log(responseData)
-
-    //         setIsFake(responseData.result);
-    //         setAudioUrl(URL.createObjectURL(file)); // Create object URL for the uploaded audio file
-
-    //     } catch (error) {
-    //         alert('format not supported aupload another audio file');
-    //     } finally {
-    //         setLoading(false);
-    //     }
-    // };
-
     const handleSubmit = async (event) => {
         event.preventDefault(); // Prevent the default form submission behavior
     
