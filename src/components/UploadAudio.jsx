@@ -14,12 +14,19 @@ const UploadAudio = () => {
         const formData = new FormData(); // Create a FormData object
     
         // Get the selected file from the file input
-        const file = event.target.audioFile.files[0];
+        const fileInput = event.target.audioFile;
+        const file = fileInput.files[0];
+    
+        if (!file) {
+            alert('Please select an audio file.');
+            return; // Exit the function if no file is selected
+        }
+    
         formData.append('audio', file); // Append the file to FormData with key 'audio'
     
         setLoading(true);
         try {
-            const response = await fetch('https://audio-classify-backend.onrender.com/predict', {
+            const response = await fetch('http://127.0.0.1:5000/predict', {
                 method: 'POST',
                 body: formData
             });
@@ -35,6 +42,7 @@ const UploadAudio = () => {
             setLoading(false);
         }
     };
+    
     
 
     return (
